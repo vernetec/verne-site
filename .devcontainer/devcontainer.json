@@ -7,13 +7,6 @@
   },
 
   "forwardPorts": [3000],
-
-  "mounts": [
-    "source=/run/host-services/ssh-auth.sock,target=/run/host-services/ssh-auth.sock,type=bind,consistency=cached"
-  ],
-  "remoteEnv": {
-    "SSH_AUTH_SOCK": "/run/host-services/ssh-auth.sock"
-  },
   
   "workspaceFolder": "/workspaces/siteverne",
 
