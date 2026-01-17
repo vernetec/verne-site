@@ -35,13 +35,12 @@
       "extensions": [
         "dbaeumer.vscode-eslint", // ESLint
         "esbenp.prettier-vscode", // Prettier
-        "dzannotti.vscode-babel-javascript", // Suporte Babel (opcional)
+        "dzannotti.vscode-babel-javascript", // Suporte Babel
         "ms-vscode.node-debugger" // Debugger Node
       ]
     }
   },
 
-  // Comando executado APÓS a criação do contêiner (e antes do VS Code anexar)
   // Útil para instalar dependências.
   "postCreateCommand": "npm install"
   
