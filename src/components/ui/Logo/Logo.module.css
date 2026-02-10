@@ -1,0 +1,31 @@
+.logo {
+  --logo-height: 70px;
+  --logo-height-mobile: 60px;
+  
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity var(--transition-normal, 0.3s ease);
+}
+
+.logo:hover {
+  opacity: 0.85;
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--color-primary, #00D9A5);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.image {
+  height: var(--logo-height);
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  .image {
+    height: var(--logo-height-mobile);
+  }
+}

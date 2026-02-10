@@ -1,13 +1,8 @@
-import './App.css'
-import BaseLayout from './component/base-layout/BaseLayout'
-import HomePageView from './component/home-page/HomePageView'
+import { HomePage } from '@/pages'
 
 function App() {
-  return (
-    <BaseLayout>
-      <HomePageView/>
-    </BaseLayout>
-  )
+  return <HomePage />
+
 }
 
 export default App
