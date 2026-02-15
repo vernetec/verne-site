@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
-import "./ContactSectionView.css";
+import { Container } from '@/components/ui';
+import styles from './ContactSectionView.module.css';
 
 function ContactSectionView() {
   const nameRef = useRef<HTMLInputElement | null>(null);
@@ -22,31 +23,54 @@ function ContactSectionView() {
   const lon = -34.8722939;
 
   return (
-    <section className="contact-section">
-      <div className="contact-grid">
-        <div className="contact-map">
-          <iframe
-            title="company-map"
-            src={`https://www.openstreetmap.org/export/embed.html?bbox=${lon}%2C${lat}%2C${lon}%2C${lat}&layer=mapnik&marker=${lat}%2C${lon}`}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-          <div className="map-address">{companyAddress}</div>
+    <section id="contato" className={styles.contact}>
+      <Container className={styles.container}>
+        <div className={styles.content}>
+          <div className={styles.mapWrapper}>
+            <iframe
+              title="company-map"
+              className={styles.map}
+              src={`https://www.openstreetmap.org/export/embed.html?bbox=${lon}%2C${lat}%2C${lon}%2C${lat}&layer=mapnik&marker=${lat}%2C${lon}`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <div className={styles.address}>{companyAddress}</div>
+          </div>
+
+          <div className={styles.formWrapper}>
+            <h2 className={styles.title}>Entre em contato conosco</h2>
+            <form className={styles.form} onSubmit={handleSubmit}>
+              <label className={styles.srOnly} htmlFor="name">
+                Nome
+              </label>
+              <input
+                className={`${styles.field} ${styles.defaultFieldColorText}`}
+                id="name"
+                ref={nameRef}
+                type="text"
+                placeholder="Seu nome"
+                required
+              />
+
+              <label className={styles.srOnly} htmlFor="message">
+                Mensagem
+              </label>
+              <textarea
+                className={`${styles.field} ${styles.defaultFieldColorText}`}
+                id="message"
+                ref={messageRef}
+                placeholder="Escreva sua mensagem aqui"
+                rows={6}
+                required
+              />
+
+              <button type="submit" className={styles.sendButton}>
+                Enviar mensagem
+              </button>
+            </form>
+          </div>
         </div>
-
-        <div className="contact-form">
-          <h2>Entre em contato conosco</h2>
-          <form onSubmit={handleSubmit}>
-            <label className="sr-only" htmlFor="name">Nome</label>
-            <input className="default-field-color-text" id="name" ref={nameRef} type="text" placeholder="Seu nome" required />
-
-            <label className="sr-only" htmlFor="message">Mensagem</label>
-            <textarea className="default-field-color-text" id="message" ref={messageRef} placeholder="Escreva sua mensagem aqui" rows={6} required />
-
-            <button type="submit" className="send-btn">Enviar mensagem</button>
-          </form>
-        </div>
-      </div>
+      </Container>
     </section>
   );
 }
