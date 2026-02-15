@@ -11,7 +11,7 @@ function ContactSectionView() {
     const message = messageRef.current?.value || "";
     const subject = "Quero conhecer mais sobre a Verne Tecnologia";
     const body = `Olá, meu nome é ${name},\n\n${message}`;
-    const mailto = `mailto:saulo@vernetec.com?subject=${encodeURIComponent(
+    const mailto = `mailto:contato@vernetec.com?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
@@ -38,10 +38,10 @@ function ContactSectionView() {
           <h2>Entre em contato conosco</h2>
           <form onSubmit={handleSubmit}>
             <label className="sr-only" htmlFor="name">Nome</label>
-            <input id="name" ref={nameRef} type="text" placeholder="Seu nome" required />
+            <input className="default-field-color-text" id="name" ref={nameRef} type="text" placeholder="Seu nome" required />
 
             <label className="sr-only" htmlFor="message">Mensagem</label>
-            <textarea id="message" ref={messageRef} placeholder="Escreva sua mensagem aqui" rows={6} required />
+            <textarea className="default-field-color-text" id="message" ref={messageRef} placeholder="Escreva sua mensagem aqui" rows={6} required />
 
             <button type="submit" className="send-btn">Enviar mensagem</button>
           </form>
