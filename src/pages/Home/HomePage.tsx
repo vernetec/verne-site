@@ -5,6 +5,7 @@ import AboutSectionView from './sections/about/AboutSectionView';
 import ContactSectionView from './sections/contact/ContactSectionView';
 import MissionSectionView from './sections/mission/MissionSectionView';
 import VisionSectionView from './sections/vision/VisionSectionView';
+import { PortifolioSectionView } from './sections/portfolio';
 
 export function HomePage() {
   return (
@@ -15,6 +16,7 @@ export function HomePage() {
         <AboutSectionView />
         <MissionSectionView />
         <VisionSectionView />
+        <PortifolioSectionView />
         <ContactSectionView />
       </main>
       <Footer />
