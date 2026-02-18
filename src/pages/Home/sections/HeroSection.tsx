@@ -12,11 +12,11 @@ export function HeroSection() {
           <strong className={styles.highlight}>{COMPANY_INFO.fullName}</strong>
         </p>
         <div className={styles.actions}>
-          <Button as="a" href="#contato" variant="primary" size="lg">
+          <Button as="a" href="#contato" variant="primary" size="md">
             Comece Agora
             <ArrowIcon />
           </Button>
-          <Button as="a" href="#sobre" variant="secondary" size="lg">
+          <Button as="a" href="#sobre" variant="secondary" size="md">
             Saiba Mais
           </Button>
         </div>

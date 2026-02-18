@@ -29,13 +29,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 900px;
+  max-width: 1100px;
   position: relative;
   z-index: 2;
 }
 
 .title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(5rem, 4vw, 4.5rem);
+  width: 100%;
   font-weight: 700;
   font-style: italic;
   line-height: 1.2;
@@ -47,9 +48,9 @@
 }
 
 .description {
-  font-size: 1.125rem;
+  font-size: 1.8rem;
   color: rgba(255, 255, 255, 0.7);
-  max-width: 600px;
+  max-width: 700px;
   margin-bottom: 2.5rem;
   padding: 0 1rem;
 }
@@ -75,12 +76,12 @@
   }
 
   .title {
-    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    font-size: clamp(1.75rem, 6vw, 3rem);
     padding: 0 1rem;
   }
 
   .description {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 }
 
@@ -92,12 +93,12 @@
   }
 
   .title {
-    font-size: clamp(1.5rem, 7vw, 2rem);
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
     margin-bottom: 1rem;
   }
 
   .description {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     margin-bottom: 2rem;
   }
 

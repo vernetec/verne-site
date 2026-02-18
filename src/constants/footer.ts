@@ -2,21 +2,15 @@ import type { FooterSection } from '@/types/contact';
 
 export const FOOTER_SECTIONS: FooterSection[] = [
   {
-    id: 'explore',
-    title: 'Explorar',
+    id: 'menu',
+    title: 'Menu',
     links: [
-      { id: 'about', label: 'Sobre Nós', href: '#sobre' },
-      { id: 'services', label: 'Serviços', href: '#servicos' },
-      { id: 'contact', label: 'Contato', href: '#contato' },
-    ],
-  },
-  {
-    id: 'quick-links',
-    title: 'Links Rápidos',
-    links: [
-      { id: 'reviews', label: 'Avaliações', href: '#avaliacoes' },
-      { id: 'home', label: 'Início', href: '#inicio' },
-      { id: 'location', label: 'Localização', href: '#localizacao' },
+      { id: 'inicio', label: 'Início', href: '#inicio' },
+      { id: 'sobre', label: 'Sobre nós', href: '#sobre' },
+      { id: 'missao', label: 'Missão', href: '#missao' },
+      { id: 'visao', label: 'Visão', href: '#visao' },
+      { id: 'portifolio', label: 'Portfólio', href: '#portifolio' },
+      { id: 'contato', label: 'Contato', href: '#contato' },
     ],
   },
 ] as const;

@@ -9,6 +9,14 @@ interface NavigationProps {
 }
 
 export function Navigation({ items, isOpen, onItemClick }: NavigationProps) {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === '#inicio') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    onItemClick();
+  };
+
   return (
     <nav className={cn(styles.nav, { [styles.open]: isOpen })}>
       <ul className={styles.list}>
@@ -17,7 +25,7 @@ export function Navigation({ items, isOpen, onItemClick }: NavigationProps) {
             <a
               href={item.href}
               className={cn(styles.link, { [styles.active]: item.isActive })}
-              onClick={onItemClick}
+              onClick={(e) => handleLinkClick(e, item.href)}
               {...(item.isExternal && {
                 target: '_blank',
                 rel: 'noopener noreferrer',
