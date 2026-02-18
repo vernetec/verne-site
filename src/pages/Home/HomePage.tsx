@@ -5,7 +5,7 @@ import AboutSectionView from './sections/about/AboutSectionView';
 import ContactSectionView from './sections/contact/ContactSectionView';
 import MissionSectionView from './sections/mission/MissionSectionView';
 import VisionSectionView from './sections/vision/VisionSectionView';
-import { PortifolioSectionView } from './sections/portfolio';
+import PortifolioSectionView from './sections/portfolio/PortifolioSectionView';
 
 export function HomePage() {
   return (
