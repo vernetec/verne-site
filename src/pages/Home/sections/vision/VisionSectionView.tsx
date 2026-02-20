@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui';
+import visionImage from '@/assets/vision.png';
 import styles from './VisionSectionView.module.css';
 
 function VisionSectionView() {
@@ -11,7 +12,7 @@ function VisionSectionView() {
         <div className={styles.content}>
           <div className={styles.imageWrapper}>
             <img
-              src="src/assets/vision.png"
+              src={visionImage}
               alt="Visão da empresa"
               className={styles.image}
             />

@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui';
+import missionImage from '@/assets/mission.png';
 import styles from './MissionSectionView.module.css';
 
 function MissionSectionView() {
@@ -15,7 +16,7 @@ function MissionSectionView() {
           </div>
           <div className={styles.imageWrapper}>
             <img
-              src="./src/assets/mission.png"
+              src={missionImage}
               alt="Missão da empresa"
               className={styles.image}
             />

@@ -1,11 +1,12 @@
 import { Container } from '@/components/ui';
+import portfolioImage from '@/assets/portifolio.png';
 import styles from './PortifolioSectionView.module.css';
 
 function PortifolioSectionView() {
   return (
     <section id="portifolio" className={styles.portfolio}>
       <img
-        src="src/assets/portifolio.png"
+        src={portfolioImage}
         alt="Portifólio"
         className={styles.bgImage}
       />
