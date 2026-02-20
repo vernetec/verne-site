@@ -28,24 +28,17 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
+    - name: Upload build artifact
+      uses: actions/upload-pages-artifact@v4
+      with:
+        path: 'dist/'
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    # needs: build # Uncomment this line if you have a build job
+    needs: build
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      # Use this block if you don't have a separate build job and your static files are at the root
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: './' # Upload the root directory, change if your files are in a subdir
-      # End of single-job setup
-          
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # This action handles the deployment
+        uses: actions/deploy-pages@v4
