@@ -1,4 +1,4 @@
-import { Container } from '@/components/ui';
+import { Container, AnimatedSection } from '@/components/ui';
 import visionImage from '@/assets/vision.png';
 import styles from './VisionSectionView.module.css';
 
@@ -10,17 +10,17 @@ function VisionSectionView() {
     <section id="visao" className={styles.vision}>
       <Container className={styles.container}>
         <div className={styles.content}>
-          <div className={styles.imageWrapper}>
+          <AnimatedSection animation="fadeRight" delay={200} className={styles.imageWrapper}>
             <img
               src={visionImage}
               alt="Visão da empresa"
               className={styles.image}
             />
-          </div>
-          <div className={styles.text}>
+          </AnimatedSection>
+          <AnimatedSection animation="fadeLeft" className={styles.text}>
             <h2 className={styles.title}>Visão</h2>
             <p className={styles.description}>{visionText}</p>
-          </div>
+          </AnimatedSection>
         </div>
       </Container>
     </section>

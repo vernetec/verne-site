@@ -1,19 +1,21 @@
-import { useToggle, useScrollLock } from '@/hooks';
+import { useToggle, useScrollLock, useScrollHeader } from '@/hooks';
 import { NAVIGATION_CONFIG } from '@/constants';
 import { Logo, Button } from '@/components/ui';
 import { Navigation } from './Navigation';
 import { MobileMenuButton } from './MobileMenuButton';
+import { cn } from '@/utils';
 import styles from './Header.module.css';
 
 export function Header() {
   const { isOpen: isMenuOpen, toggle: toggleMenu, close: closeMenu } = useToggle();
+  const isScrolled = useScrollHeader(50);
   
   useScrollLock(isMenuOpen);
 
   const { items, ctaButton } = NAVIGATION_CONFIG;
 
   return (
-    <header className={styles.header}>
+    <header className={cn(styles.header, { [styles.scrolled]: isScrolled })}>
       <div className={styles.container}>
         <Logo />
 

@@ -1,0 +1,94 @@
+.animated {
+  transition: 
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.fadeUp {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.fadeUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fadeIn {
+  opacity: 0;
+}
+
+.fadeIn.visible {
+  opacity: 1;
+}
+
+.fadeLeft {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.fadeLeft.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fadeRight {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.fadeRight.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scaleUp {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.scaleUp.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.blur {
+  opacity: 0;
+  filter: blur(10px);
+}
+
+.blur.visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated {
+    transition: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .animated {
+    transition-duration: 0.5s;
+  }
+
+  .fadeUp {
+    transform: translateY(20px);
+  }
+
+  .fadeLeft,
+  .fadeRight {
+    transform: translateY(20px);
+  }
+
+  .fadeLeft.visible,
+  .fadeRight.visible {
+    transform: translateY(0);
+  }
+}

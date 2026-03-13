@@ -1,8 +1,20 @@
 .about {
-  padding: 4rem 0;
+  padding: 6rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(126, 200, 227, 0.3), transparent);
 }
 
 .container {
@@ -13,14 +25,14 @@
 }
 
 .content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
   align-items: center;
-  gap: 3rem;
+  gap: 4rem;
   width: 100%;
 }
 
 .text {
-  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -31,7 +43,7 @@
   font-style: italic;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #fff 0%, #e0e0e0 100%);
+  background: linear-gradient(135deg, #fff 0%, #7EC8E3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -40,17 +52,94 @@
 .description {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
+  line-height: 1.7;
   text-align: justify;
 }
 
-@media (max-width: 768px) {
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.featureIcon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  color: #7EC8E3;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 8px rgba(126, 200, 227, 0.3));
+}
+
+.featureIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.featureCard:hover .featureIcon {
+  color: #A5DCF0;
+  transform: scale(1.1) translateY(-4px);
+  filter: drop-shadow(0 0 16px rgba(126, 200, 227, 0.5));
+}
+
+.featureCard h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.featureCard p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
   .content {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .features {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 0;
+  }
+
+  .content {
     gap: 2rem;
+  }
+
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .featureCard {
+    padding: 1rem 0.5rem;
   }
 
   .description {
     text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .features {
+    grid-template-columns: 1fr;
   }
 }

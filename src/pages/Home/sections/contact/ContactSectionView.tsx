@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Container } from '@/components/ui';
+import { Container, AnimatedSection, GlassCard } from '@/components/ui';
 import styles from './ContactSectionView.module.css';
 
 function ContactSectionView() {
@@ -21,54 +21,93 @@ function ContactSectionView() {
   const companyAddress = "R. Dona Maria César, 170 - Recife";
   const lat = -8.0631399;
   const lon = -34.8722939;
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
+  const googleMapsEmbedUrl = `https://www.google.com/maps?q=${lat},${lon}&z=16&output=embed`;
 
   return (
     <section id="contato" className={styles.contact}>
       <Container className={styles.container}>
+        <AnimatedSection animation="fadeUp">
+          <h2 className={styles.sectionTitle}>Entre em Contato</h2>
+          <p className={styles.sectionSubtitle}>
+            Estamos prontos para ajudar sua empresa a crescer
+          </p>
+        </AnimatedSection>
+
         <div className={styles.content}>
-          <div className={styles.mapWrapper}>
-            <iframe
-              title="company-map"
-              className={styles.map}
-              src={`https://www.openstreetmap.org/export/embed.html?bbox=${lon}%2C${lat}%2C${lon}%2C${lat}&layer=mapnik&marker=${lat}%2C${lon}`}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-            <div className={styles.address}>{companyAddress}</div>
-          </div>
+          <AnimatedSection animation="fadeLeft" className={styles.mapWrapper}>
+            <GlassCard className={styles.mapCard}>
+              <a 
+                href={googleMapsUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.mapLink}
+              >
+                <iframe
+                  title="company-map"
+                  className={styles.map}
+                  src={googleMapsEmbedUrl}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+                <div className={styles.mapOverlay}>
+                  <span>Abrir no Google Maps</span>
+                </div>
+              </a>
+              <a 
+                href={googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.address}
+              >
+                <span className={styles.addressIcon}>📍</span>
+                {companyAddress}
+              </a>
+            </GlassCard>
+          </AnimatedSection>
 
-          <div className={styles.formWrapper}>
-            <h2 className={styles.title}>Entre em contato conosco</h2>
-            <form className={styles.form} onSubmit={handleSubmit}>
-              <label className={styles.srOnly} htmlFor="name">
-                Nome
-              </label>
-              <input
-                className={`${styles.field} ${styles.defaultFieldColorText}`}
-                id="name"
-                ref={nameRef}
-                type="text"
-                placeholder="Seu nome"
-                required
-              />
+          <AnimatedSection animation="fadeRight" delay={200} className={styles.formWrapper}>
+            <GlassCard className={styles.formCard} glow>
+              <h3 className={styles.title}>Envie uma mensagem</h3>
+              <form className={styles.form} onSubmit={handleSubmit}>
+                <div className={styles.inputGroup}>
+                  <label className={styles.label} htmlFor="name">
+                    Nome
+                  </label>
+                  <input
+                    className={styles.field}
+                    id="name"
+                    ref={nameRef}
+                    type="text"
+                    placeholder="Seu nome"
+                    required
+                  />
+                </div>
 
-              <label className={styles.srOnly} htmlFor="message">
-                Mensagem
-              </label>
-              <textarea
-                className={`${styles.field} ${styles.defaultFieldColorText}`}
-                id="message"
-                ref={messageRef}
-                placeholder="Escreva sua mensagem aqui"
-                rows={6}
-                required
-              />
+                <div className={styles.inputGroup}>
+                  <label className={styles.label} htmlFor="message">
+                    Mensagem
+                  </label>
+                  <textarea
+                    className={styles.field}
+                    id="message"
+                    ref={messageRef}
+                    placeholder="Escreva sua mensagem aqui"
+                    rows={5}
+                    required
+                  />
+                </div>
 
-              <button type="submit" className={styles.sendButton}>
-                Enviar mensagem
-              </button>
-            </form>
-          </div>
+                <button type="submit" className={styles.sendButton}>
+                  <span>Enviar mensagem</span>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </form>
+            </GlassCard>
+          </AnimatedSection>
         </div>
       </Container>
     </section>

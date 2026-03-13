@@ -2,6 +2,7 @@ import { Header, Footer } from '@/components/layout';
 import { HeroSection } from './sections/HeroSection';
 import styles from './HomePage.module.css';
 import AboutSectionView from './sections/about/AboutSectionView';
+import ServicesSectionView from './sections/services/ServicesSectionView';
 import ContactSectionView from './sections/contact/ContactSectionView';
 import MissionSectionView from './sections/mission/MissionSectionView';
 import VisionSectionView from './sections/vision/VisionSectionView';
@@ -14,6 +15,7 @@ export function HomePage() {
       <main className={styles.main}>
         <HeroSection />
         <AboutSectionView />
+        <ServicesSectionView />
         <MissionSectionView />
         <VisionSectionView />
         <PortifolioSectionView />

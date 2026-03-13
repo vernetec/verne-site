@@ -1,4 +1,4 @@
-import { Container } from '@/components/ui';
+import { Container, AnimatedSection } from '@/components/ui';
 import missionImage from '@/assets/mission.png';
 import styles from './MissionSectionView.module.css';
 
@@ -10,17 +10,17 @@ function MissionSectionView() {
     <section id="missao" className={styles.mission}>
       <Container className={styles.container}>
         <div className={styles.content}>
-          <div className={styles.text}>
+          <AnimatedSection animation="fadeRight" className={styles.text}>
             <h2 className={styles.title}>Missão</h2>
             <p className={styles.description}>{missionText}</p>
-          </div>
-          <div className={styles.imageWrapper}>
+          </AnimatedSection>
+          <AnimatedSection animation="fadeLeft" delay={200} className={styles.imageWrapper}>
             <img
               src={missionImage}
               alt="Missão da empresa"
               className={styles.image}
             />
-          </div>
+          </AnimatedSection>
         </div>
       </Container>
     </section>

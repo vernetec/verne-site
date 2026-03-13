@@ -1,26 +1,39 @@
 import { APP_CONFIG, COMPANY_INFO } from '@/constants';
-import { Button, Container } from '@/components/ui';
+import { Button, Container, ParticleBackground, AnimatedSection } from '@/components/ui';
 import styles from './HeroSection.module.css';
 
 export function HeroSection() {
   return (
     <section id="inicio" className={styles.hero}>
+      <ParticleBackground particleCount={40} />
       <Container className={styles.container}>
-        <h1 className={styles.title}>{APP_CONFIG.tagline}</h1>
-        <p className={styles.description}>
-          {APP_CONFIG.description} da{' '}
-          <strong className={styles.highlight}>{COMPANY_INFO.fullName}</strong>
-        </p>
-        <div className={styles.actions}>
-          <Button as="a" href="#contato" variant="primary" size="md">
-            Comece Agora
-            <ArrowIcon />
-          </Button>
-          <Button as="a" href="#sobre" variant="secondary" size="md">
-            Saiba Mais
-          </Button>
-        </div>
+        <AnimatedSection animation="fadeUp" delay={100}>
+          <h1 className={styles.title}>{APP_CONFIG.tagline}</h1>
+        </AnimatedSection>
+        <AnimatedSection animation="fadeUp" delay={200}>
+          <p className={styles.description}>
+            {APP_CONFIG.description} da{' '}
+            <strong className={styles.highlight}>{COMPANY_INFO.fullName}</strong>
+          </p>
+        </AnimatedSection>
+        <AnimatedSection animation="fadeUp" delay={300}>
+          <div className={styles.actions}>
+            <Button as="a" href="#contato" variant="primary" size="md">
+              Comece Agora
+              <ArrowIcon />
+            </Button>
+            <Button as="a" href="#sobre" variant="secondary" size="md">
+              Saiba Mais
+            </Button>
+          </div>
+        </AnimatedSection>
       </Container>
+      <div className={styles.scrollIndicator}>
+        <div className={styles.mouse}>
+          <div className={styles.wheel}></div>
+        </div>
+        <span>Role para baixo</span>
+      </div>
     </section>
   );
 }
